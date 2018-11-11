@@ -3,7 +3,7 @@ const db=require('../../../db/pghelper'),
 
 const pureNumeric = /^\d+$/;
 
-const geneIds = ['symbol', 'gene_name', 'alias_symbol','gene_id','ensembl_id'];
+const geneIds = ['symbol', 'gene_name','gene_id','ensembl_id'];
     
 
 const geneQuerySelect = (column,value) => `SELECT symbol AS Gene_Symbol, 
