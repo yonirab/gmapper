@@ -8,7 +8,7 @@ const geneQuerySchema = Joi.object().keys({
 
 const getMappings = {
     body: Joi.object().keys({
-        genes: Joi.array().min(1).items(geneQuerySchema).required(),
+        genes: Joi.array().min(1).items(geneQuerySchema).unique('query').required(),
     }),
 };
 
