@@ -17,10 +17,18 @@
     "pg-native": "^3.0.0",
     "winston": "^2.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "better-npm-run": "^0.1.1",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.0",
+    "mocha": "^5.2.0"
+  },
   "scripts": {
     "start": "node www/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "better-npm-run testapi"
+  },
+  "betterScripts": {
+    "testapi": "mocha --timeout 10000 www/test/*.spec.js"
   },
   "keywords": [
     "genes"
