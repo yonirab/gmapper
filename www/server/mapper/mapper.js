@@ -44,7 +44,7 @@ const mapOne = async gene => {
                         // Filter out any duplicate results based on entrez_gene_id
                         .filter((elem,idx,orig)=>orig.findIndex(el=>el.entrez_gene_id===elem.entrez_gene_id)===idx);
                         
-    winston.info(`gene.results: ${JSON.stringify(gene.results)}`);
+    winston.info(JSON.stringify(gene));
 };
 
 // Middleware to handle a query pertaining to a list of gene id queries in req.body.genes.

@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Gene Mapper Service
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+  <ion-grid>
+    <form (ngSubmit)="geneIdsForm()">
+      <ion-row>
+        <ion-col col-4>
+          <ion-item>
+            <ion-label stacked>Gene id</ion-label>
+            <ion-input type="text" [(ngModel)]="geneId1" name="geneId1" clearInput=true></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-4>
+          <ion-item>
+            <ion-label stacked>Gene id</ion-label>
+            <ion-input type="text" [(ngModel)]="geneId2" name="geneId2" clearInput=true></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col col-4>
+          <ion-item>
+            <ion-label stacked>Gene id</ion-label>
+            <ion-input type="text" [(ngModel)]="geneId3" name="geneId3" clearInput=true></ion-input>
+          </ion-item>
+        </ion-col>  
+      </ion-row>
+      <ion-row>
+        <button ion-button full type="submit">Submit</button>
+      </ion-row>
+    </form>
+  </ion-grid>
+  </ion-card>
+  <ion-card *ngIf="geneMappings">
+    <ion-card-header>
+      <ion-row>
+        <ion-col col-1>
+          Gene id
+        </ion-col>
+        <ion-col col-1>
+          Symbol
+        </ion-col>
+        <ion-col col-4>
+          Name
+        </ion-col>
+        <ion-col col-2>
+          Aliases
+        </ion-col>
+        <ion-col col-1>
+          Entrez
+        </ion-col>
+        <ion-col col-2>
+          Ensembl
+        </ion-col>
+        <ion-col col-1>
+          Score
+        </ion-col>
+      </ion-row>  
+    </ion-card-header>
+    <ion-grid>
+      <ion-item *ngFor="let geneMapping of geneMappings">
+        <ion-item *ngFor="let result of geneMapping.results">
+          <ion-row>
+            <ion-col col-1 text-wrap>{{geneMapping.query}}</ion-col>
+            <ion-col col-1 text-wrap>{{result.gene_symbol}}</ion-col>
+            <ion-col col-4 text-wrap>{{result.gene_name}}</ion-col>
+            <ion-col col-2 text-wrap>{{result.gene_aliases}}</ion-col>
+            <ion-col col-1 text-wrap>{{result.entrez_gene_id}}</ion-col>
+            <ion-col col-2 text-wrap>{{result.ensembl_gene_id}}</ion-col>
+            <ion-col col-1 text-wrap>{{result.score}}</ion-col> 
+          </ion-row>
+        </ion-item>
+      </ion-item>  
+    </ion-grid>
+  </ion-card>
+</ion-content>

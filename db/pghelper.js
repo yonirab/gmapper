@@ -25,7 +25,7 @@ const pool = new Pool ({
  * @param logQuery - If true log the query
  * @returns {promise|*}
  */ 
-const query = async (sql, values, singleItem, logQuery=true) => {
+const query = async (sql, values, singleItem, logQuery=false) => {
     
     if (logQuery) {
         winston.info(`${sql} [${values || ""}]`);

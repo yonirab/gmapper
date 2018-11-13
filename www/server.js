@@ -2,6 +2,7 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       helmet = require('helmet'),
       httpsRedirect = require('express-https-redirect'),
+      path = require('path'),
       winston = require('winston'),
       validate = require('express-validation'),
       schema = require('./server/joi/schema'),
@@ -30,12 +31,16 @@ if (process.env.NODE_ENV === 'production') {
 }
     
 // Serve static SPA assets
-// app.use(express.static(path.join(__dirname, './client/www')));
+app.use(express.static(path.join(__dirname, './client/www')));
 
 // Acknowledge successful completion of express request sending back req.body     
 const ok = httpStatus => (req, res, next) => res.status(httpStatus || 200).send(req.body);
 
-app.get('/mappings',validate(schema.getMappings),mapper.queryGenes, ok());
+// This should really be a GET, but REST purists frown at passing JSON body in a GET,
+// and the Angular http service doesn't support it.
+// So we use the express app.all method which enables us to hit the endpoint with any HTTP request method
+// (e.g. POST from UI and GET from elsewhere).
+app.all('/mappings',validate(schema.getMappings),mapper.queryGenes, ok());
 
 
 app.use((err, req, res, next) => {
