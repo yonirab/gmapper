@@ -13,7 +13,8 @@ On a machine with docker installed:
 
 The DB initialisations are currently performed via SQL scripts,
 and they take a while to complete, so be patient ;-)
-You will know when they are finished when the docker-compose temrinal
+
+You will know when they are finished when the docker-compose terminal
 stops spitting out "INSERT 0 1" logs.
 
 Once complete, run the app by pointing your browser to port 8080 on your docker host
