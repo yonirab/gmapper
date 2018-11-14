@@ -1,4 +1,3 @@
-PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE ensembl (
       _id INTEGER NOT NULL,                         -- REFERENCES  genes 

@@ -1,4 +1,3 @@
-PRAGMA foreign_keys=OFF;
 BEGIN TRANSACTION;
 CREATE TABLE genes (
       _id INTEGER PRIMARY KEY,

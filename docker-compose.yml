@@ -12,13 +12,11 @@ services:
     networks:
       - gmapnet
   db:
-    image: "postgres:11"
+    build: ./db
     restart: always
     env_file: .env
     ports:
       - "5432:5432"
-    volumes:
-      - /workspace/gmapper/db/initdb:/docker-entrypoint-initdb.d
     networks:
       - gmapnet  
 networks:
