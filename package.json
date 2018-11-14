@@ -25,6 +25,7 @@
   },
   "scripts": {
     "start": "node www/server.js",
+    "postinstall": "cd www/client && yarn && yarn run build",
     "test": "better-npm-run testapi"
   },
   "betterScripts": {
