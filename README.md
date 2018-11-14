@@ -9,12 +9,6 @@ On a machine with docker installed:
     git clone https://github.com/yonirab/gmapper.git
 	cd gmapper
 	. ./docker_setup
-
-Check that the IP address of DATABASE_DOCKER_HOST in .env matches your docker host. 
-If not, edit .env accordingly.
-
-Then run:
-
     docker-compose up
 
 The DB initialisations are currently performed via SQL scripts,
